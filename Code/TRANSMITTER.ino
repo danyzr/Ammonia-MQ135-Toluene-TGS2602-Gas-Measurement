@@ -98,39 +98,6 @@ void loop() {
       lcd.setCursor(9, 1);
       lcd.print(ppmMQ,3);
 
-      DateTime now = rtc.now();
-      File dataFile = SD.open("datalog.txt", FILE_WRITE);
-
-      dataFile.print("Sampling:");
-      dataFile.print("\t");
-      dataFile.print(k);
-      dataFile.print("\n");
-      dataFile.print("Tanggal:");
-      dataFile.print("\t");
-      dataFile.print(now.year(), DEC);
-      dataFile.print('/');
-      dataFile.print(now.month(), DEC);
-      dataFile.print('/');
-      dataFile.print(now.day(), DEC);
-      dataFile.print('\n');
-      dataFile.print("Waktu:");
-      dataFile.print("\t");
-      dataFile.print(now.hour(), DEC);
-      dataFile.print(':');
-      dataFile.print(now.minute(), DEC);
-      dataFile.print(':');
-      dataFile.print(now.second(), DEC);
-      dataFile.print("\n");
-      dataFile.print("Toluena:");
-      dataFile.print("\t");
-      dataFile.print(ppmTGS,3);
-      dataFile.print("\n");
-      dataFile.print("Amonia:");
-      dataFile.print("\t");
-      dataFile.print(ppmMQ,3);
-      dataFile.println(" ");
-      dataFile.close();
-
       //bluetooth master to slave
       strTGSValue = String(ppmTGS,3);
       strMQValue = String(ppmMQ,3);
